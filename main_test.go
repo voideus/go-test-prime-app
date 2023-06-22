@@ -40,6 +40,28 @@ func Test_isPrime(t *testing.T) {
 
 }
 
+func Test_IsPrime_Parallel(t *testing.T) {
+	t.Run("Is Prime", func(t *testing.T) {
+		t.Parallel()
+		input := 3
+		result, _ := isPrime(input)
+
+		if result == false {
+			t.Errorf("Result for input %d expected true but got false", input)
+		}
+	})
+	t.Run("Is not Prime", func(t *testing.T) {
+		t.Parallel()
+		input := 8
+		result, _ := isPrime(input)
+
+		if result == true {
+			t.Errorf("Result for input %d expected false but got true", input)
+		}
+	})
+
+}
+
 func Test_IsPrime(t *testing.T) {
 	input := 3
 	result, _ := isPrime(input)
