@@ -40,6 +40,18 @@ func Test_isPrime(t *testing.T) {
 
 }
 
+func Test_IsPrime(t *testing.T) {
+	input := 3
+	result, _ := isPrime(input)
+
+	if result != true {
+		t.Errorf("Result was incorrect, got: %t, want: %t.", result, true)
+	}
+
+	t.Fatalf("Stop the test now, we have seen enough")
+	t.Error("This won't be executed")
+}
+
 func Test_alpha_isPrime(t *testing.T) {
 
 	primeTests := []struct {
