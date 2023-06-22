@@ -4,29 +4,32 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	// print a welcome message
-	intro()
+	n := 2
 
-	// create a channel to indicate when the user wants to quit
-	doneChan := make(chan bool)
+	_, msg := isPrime(n)
+	fmt.Println(msg)
+	// // print a welcome message
+	// intro()
 
-	// start a goroutine to read user input and run program
-	go readUserInput(os.Stdin, doneChan)
+	// // create a channel to indicate when the user wants to quit
+	// doneChan := make(chan bool)
 
-	// block until the doneChan gets a value
-	<-doneChan
+	// // start a goroutine to read user input and run program
+	// go readUserInput(os.Stdin, doneChan)
 
-	// close the channel
-	close(doneChan)
+	// // block until the doneChan gets a value
+	// <-doneChan
 
-	// say goodbye
-	fmt.Println("Goodbye !!!")
+	// // close the channel
+	// close(doneChan)
+
+	// // say goodbye
+	// fmt.Println("Goodbye !!!")
 }
 
 func readUserInput(in io.Reader, doneChan chan bool) {

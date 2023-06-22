@@ -9,6 +9,37 @@ import (
 	"testing"
 )
 
+func Test_isPrime(t *testing.T) {
+	primeTests := []struct {
+		name     string
+		testNum  int
+		expected bool
+		msg      string
+	}{
+		{"prime", 7, true, "7 is a prime number"},
+		{"not prime", 8, false, "8 is not prime number because it is divisible by 2"},
+	}
+
+	for _, e := range primeTests {
+		t.Run(e.name, func(t *testing.T) {
+			result, msg := isPrime(e.testNum)
+
+			if e.expected && !result {
+				t.Errorf("%s expected true but got false", e.name)
+			}
+
+			if !e.expected && result {
+				t.Errorf("%s expected false but got true", e.name)
+			}
+
+			if e.msg != msg {
+				t.Errorf("%s: expected %s but got %s", e.name, e.msg, msg)
+			}
+		})
+	}
+
+}
+
 func Test_alpha_isPrime(t *testing.T) {
 
 	primeTests := []struct {
