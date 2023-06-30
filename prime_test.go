@@ -28,6 +28,7 @@ func Test_IsPrimeTableTest(t *testing.T) {
 		{4, false},
 		{9, false},
 		{15, false},
+		{20, false},
 	}
 
 	for _, tc := range testCases {
